@@ -10,14 +10,16 @@ Hero.prototype = {
     return "My name is " + this.name + "!";
   },
   eat: function(food){
-    if(_.isEqual(food, this.faveFood)){
-      this.health += (food.replenishmentValue * 1.5); 
-   } else {
-    this.health += food.replenishmentValue;
-   }
-   return 'Yum';
- }
+    var nutrition = food.replenishmentValue;
 
-}
+    if(food.isPoisoned){
+      nutrition *= -1;
+    } else if (_.isEqual(food, this.faveFood)){
+        nutrition *= 1.5; 
+      }
+      this.health += nutrition; 
+      return 'Yum';
+    }
+  }
 
 module.exports = Hero;
