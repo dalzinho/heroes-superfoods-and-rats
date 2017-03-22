@@ -48,4 +48,10 @@ describe('Hero', function(){
     assert.equal(80, mario.health);
   });
 
+  it('is disgusted by eating poisoned food', function(){
+    mushroom.poison();
+    assert.equal('Yuck', mario.eat(mushroom));
+
+  })
+
 })
