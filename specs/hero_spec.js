@@ -1,17 +1,31 @@
 var Hero = require('../hero');
 var assert = require('assert');
+var mario;
 
-describe('Hero', function{
+describe('Hero', function(){
+  beforeEach(function(){
+    mario = new Hero('Mario', 'mushroom');
+  });
 
-  it('has a name');
+  it('has a name', function(){
+    assert.equal('Mario', mario.name);
+  });
 
-  it('has health');
+  it('has health', function(){
+    assert.equal(100, mario.health);
+  });
 
-  it('has a favourite food');
+  it('has a favourite food', function(){
+    assert.equal('mushroom', mario.faveFood);
+  });
 
-  it('can say its name');
+  it('can say its name', function(){
+    assert.equal('My name is Mario!', mario.sayName());
+  });
 
-  it('can eat food');
+  it('can eat food', function(){
+    assert.equal('Yum', mario.eat());
+  });
 
   it('is replenished by food');
 
