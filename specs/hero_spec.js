@@ -6,7 +6,8 @@ var mushroom;
 
 describe('Hero', function(){
   beforeEach(function(){
-    mario = new Hero('Mario', 'mushroom');
+    mario = new Hero('Mario', mushroom);
+    cabbage = new Food('cabbage', 10);
     mushroom = new Food('mushroom', 20);
   });
 
@@ -19,7 +20,7 @@ describe('Hero', function(){
   });
 
   it('has a favourite food', function(){
-    assert.equal('mushroom', mario.faveFood);
+    assert.deepEqual(mushroom, mario.faveFood);
   });
 
   it('can say its name', function(){
@@ -27,15 +28,18 @@ describe('Hero', function(){
   });
 
   it('can eat food', function(){
-    assert.equal('Yum', mario.eat());
+    assert.equal('Yum', mario.eat(mushroom));
   });
 
   it('is replenished by food', function(){
-    mario.eat(mushroom);
-    assert.equal(120, mario.health);
+    mario.eat(cabbage);
+    assert.equal(110, mario.health);
 
   });
 
-  it('is 1.5* replenished by eating favourite food'); 
+  it('is 1.5* replenished by eating favourite food', function(){
+    mario.eat(mushroom);
+    assert.equal(130, mario.health);
+  }); 
 
 })
