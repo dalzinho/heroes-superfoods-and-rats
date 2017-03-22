@@ -10,7 +10,6 @@ Hero.prototype = {
     return "My name is " + this.name + "!";
   },
   eat: function(food){
-
     if(_.isEqual(food, this.faveFood)){
       this.health += (food.replenishmentValue * 1.5); 
    } else {
