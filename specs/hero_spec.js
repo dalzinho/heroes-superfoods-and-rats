@@ -1,10 +1,13 @@
 var Hero = require('../hero');
+var Food = require('../food');
 var assert = require('assert');
 var mario;
+var mushroom;
 
 describe('Hero', function(){
   beforeEach(function(){
     mario = new Hero('Mario', 'mushroom');
+    mushroom = new Food('mushroom', 20);
   });
 
   it('has a name', function(){
@@ -27,7 +30,11 @@ describe('Hero', function(){
     assert.equal('Yum', mario.eat());
   });
 
-  it('is replenished by food');
+  it('is replenished by food', function(){
+    mario.eat(mushroom);
+    assert.equal(120, mario.health);
+
+  });
 
   it('is 1.5* replenished by eating favourite food'); 
 
