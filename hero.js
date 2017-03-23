@@ -1,4 +1,5 @@
 var _ = require('lodash');
+
 var Hero = function(name, faveFood){
   this.name = name;
   this.health = 100;
